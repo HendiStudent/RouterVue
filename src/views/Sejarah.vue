@@ -1,7 +1,7 @@
 <template>
   <section class="page-content">
     <h2>Sejarah Kelapa Sawit</h2>
-    <img src="./assets/image.png" alt="">
+    
     <p>
       Kelapa sawit memiliki sejarah panjang yang bermula di Afrika Barat sebelum menyebar ke Asia dan Indonesia.
       Sawit mulai dibudidayakan secara luas di Indonesia pada abad ke-20 dan menjadi salah satu komoditas unggulan.
