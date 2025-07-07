@@ -9,20 +9,37 @@
       <li><router-link to="/jasa">Jasa</router-link></li>
       <li><router-link to="/kontak">Kontak</router-link></li>
     </ul>
-    <button class="theme-toggle" @click="toggleTheme" :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
-      <span v-if="isDark">☀️ Light Mode</span>
-      <span v-else>🌙 Dark Mode</span>
-    </button>
+
+    <div class="flex gap-2 items-center">
+      <button class="theme-toggle" @click="toggleTheme" :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+        <span v-if="isDark">☀️ Light Mode</span>
+        <span v-else>🌙 Dark Mode</span>
+      </button>
+
+      <!-- ✅ Tombol Login/Logout -->
+      <button v-if="!auth.isLoggedIn" @click="router.push('/login')" class="theme-toggle">Login</button>
+      <button v-else @click="logout" class="theme-toggle">Logout</button>
+    </div>
   </nav>
 </template>
 
-<script>
-export default {
-  props: {
-    toggleTheme: { type: Function, required: true },
-    isDark: { type: Boolean, required: true }
-    
-  }
+<script setup>
+import { useAuthStore } from '../stores/authStore'
+import { useRouter } from 'vue-router'
+import { toRefs } from 'vue'
+
+const props = defineProps({
+  toggleTheme: { type: Function, required: true },
+  isDark: { type: Boolean, required: true }
+})
+
+const { toggleTheme, isDark } = toRefs(props)
+const auth = useAuthStore()
+const router = useRouter()
+
+const logout = () => {
+  auth.logout()
+  router.push('/login')
 }
 </script>
 
