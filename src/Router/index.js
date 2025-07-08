@@ -8,38 +8,38 @@ import Manfaat from '../views/Manfaat.vue'
 import Produksi from '../views/Produksi.vue'
 import JualBeli from '../views/JualBeli.vue'
 import Jasa from '../views/Jasa.vue'
-import Kontak from '../views/Kontak.vue'
-//import Dashboard from '../views/Dashboard.vue'
+import DetailPemesan from '../views/DetailPemesan.vue'
 
-// Import Pinia store untuk auth
 import { useAuthStore } from '../stores/authStore'
 
 const routes = [
-  { path: '/', name: 'Home', component: Home },
   { path: '/login', name: 'Login', component: Login },
-//  { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/sejarah', name: 'Sejarah', component: Sejarah },
-  { path: '/manfaat', name: 'Manfaat', component: Manfaat },
-  { path: '/produksi', name: 'Produksi', component: Produksi },
-  { path: '/jualbeli', name: 'JualBeli', component: JualBeli },
-  { path: '/jasa', name: 'Jasa', component: Jasa },
-  { path: '/kontak', name: 'Kontak', component: Kontak },
-  { path: '/:pathMatch(.*)*', redirect: '/' }
+  { path: '/', name: 'Home', component: Home, meta: { requiresAuth: true } },
+  { path: '/sejarah', name: 'Sejarah', component: Sejarah, meta: { requiresAuth: true } },
+  { path: '/manfaat', name: 'Manfaat', component: Manfaat, meta: { requiresAuth: true } },
+  { path: '/produksi', name: 'Produksi', component: Produksi, meta: { requiresAuth: true } },
+  { path: '/jualbeli', name: 'JualBeli', component: JualBeli, meta: { requiresAuth: true } },
+  { path: '/jasa', name: 'Jasa', component: Jasa, meta: { requiresAuth: true } },
+  { path: '/detail-pemesan', name: 'DetailPemesan', component: DetailPemesan, meta: { requiresAuth: true } },
+  { path: '/:pathMatch(.*)*', redirect: '/login' } // jika route tidak cocok, redirect ke login
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior() {
-    return { top: 0 } 
+    return { top: 0 }
   }
 })
 
-// ✅ Navigation guard: proteksi route dashboard
+// ✅ Navigation guard
 router.beforeEach((to, from, next) => {
   const auth = useAuthStore()
-  if (to.name === 'Dashboard' && !auth.isLoggedIn) {
+
+  if (to.meta.requiresAuth && !auth.isLoggedIn) {
     next('/login')
+  } else if (to.name === 'Login' && auth.isLoggedIn) {
+    next('/')
   } else {
     next()
   }

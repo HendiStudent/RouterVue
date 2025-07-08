@@ -2,22 +2,20 @@ import { defineStore } from 'pinia'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
-    user: null
+    isLoggedIn: false
   }),
   actions: {
     login(username, password) {
-      // Dummy authentication
-      if (username === 'admin' && password === '123') {
-        this.user = { username }
+      // Contoh validasi login sederhana
+      if (username === 'admin' && password === '1234') {
+        this.isLoggedIn = true
         return true
+      } else {
+        return false
       }
-      return false
     },
     logout() {
-      this.user = null
+      this.isLoggedIn = false
     }
-  },
-  getters: {
-    isLoggedIn: (state) => !!state.user
   }
 })
