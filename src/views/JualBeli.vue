@@ -262,7 +262,7 @@ export default {
   methods: {
     async getTransaksiSawit() {
       try {
-        const res = await axios.get('http://localhost:3001/transaksiSawit');
+        const res = await axios.get('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/transaksiSawit');
         this.transaksiSawit = res.data.reverse(); // tampil terbaru di atas
       } catch (err) {
         console.error('Error fetching transaksi sawit:', err);
@@ -275,7 +275,7 @@ export default {
           ...this.newTransaksiSawit,
           tanggal: new Date()
         };
-        const res = await axios.post('http://localhost:3001/transaksiSawit', transaksiBaru);
+        const res = await axios.post('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/transaksiSawit', transaksiBaru);
         this.transaksiSawit.unshift(res.data);
         this.newTransaksiSawit = { namaPenjual: '', alamatSawit: '', jumlahMobil: 1 };
         alert('Transaksi sawit berhasil ditambahkan!');
@@ -287,10 +287,10 @@ export default {
 
     async initializeData() {
       try {
-        const barangRes = await axios.get('http://localhost:3001/barangInventory');
+        const barangRes = await axios.get('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/barangInventory');
         this.barangInventory = barangRes.data;
 
-        const transaksiRes = await axios.get('http://localhost:3001/transaksi');
+        const transaksiRes = await axios.get('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/transaksi');
         this.riwayatTransaksi = transaksiRes.data.reverse();
       } catch (err) {
         console.error('Error initializing data:', err);
@@ -299,7 +299,7 @@ export default {
 
     async addBarang() {
       try {
-        const res = await axios.post('http://localhost:3001/barangInventory', {
+        const res = await axios.post('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/barangInventory', {
           ...this.newBarang,
           editing: false
         });
@@ -316,7 +316,7 @@ export default {
     async editBarang(barang) {
       if (barang.editing) {
         try {
-          await axios.put(`http://localhost:3001/barangInventory/${barang.id}`, barang);
+          await axios.put(`https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/barangInventory/${barang.id}`, barang);
           barang.editing = false;
           alert('Barang berhasil diupdate!');
         } catch (err) {
@@ -331,7 +331,7 @@ export default {
     async deleteBarang(id) {
       if (confirm('Apakah Anda yakin ingin menghapus barang ini?')) {
         try {
-          await axios.delete(`http://localhost:3001/barangInventory/${id}`);
+          await axios.delete(`https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/barangInventory/${id}`);
           this.barangInventory = this.barangInventory.filter(b => b.id !== id);
           alert('Barang berhasil dihapus!');
         } catch (err) {
@@ -350,7 +350,7 @@ export default {
     async confirmRestock() {
       try {
         this.restockItem.stok += this.restockAmount;
-        await axios.put(`http://localhost:3001/barangInventory/${this.restockItem.id}`, this.restockItem);
+        await axios.put(`https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/barangInventory/${this.restockItem.id}`, this.restockItem);
         this.closeRestockModal();
         alert(`Restock berhasil! Stok ${this.restockItem.nama} bertambah ${this.restockAmount} ${this.restockItem.satuan}`);
       } catch (err) {
@@ -385,11 +385,11 @@ export default {
           satuan: barang.satuan
         };
 
-        const res = await axios.post('http://localhost:3001/transaksi', transaksi);
+        const res = await axios.post('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/transaksi', transaksi);
         this.riwayatTransaksi.unshift(res.data);
 
         barang.stok -= this.purchaseData.jumlah;
-        await axios.put(`http://localhost:3001/barangInventory/${barang.id}`, barang);
+        await axios.put(`https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/barangInventory/${barang.id}`, barang);
 
         this.purchaseData = { namaPembeli: '', nohp: '', barangId: '', jumlah: 0 };
 

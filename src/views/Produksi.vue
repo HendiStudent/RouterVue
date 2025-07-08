@@ -72,7 +72,7 @@ export default {
   methods: {
     async getPenjualanTahunan() {
       try {
-        const res = await axios.get('http://localhost:3001/penjualanTahunan');
+        const res = await axios.get('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/penjualanTahunan');
         this.penjualanTahunan = res.data;
       } catch (err) {
         console.error('Error fetching penjualan tahunan:', err);

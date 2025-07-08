@@ -50,7 +50,7 @@ export default {
   methods: {
     async fetchProviders() {
       try {
-        const res = await axios.get('http://localhost:3001/providers');
+        const res = await axios.get('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/providers');
         this.providers = res.data;
       } catch (err) {
         console.error('Error fetching providers:', err);
@@ -58,7 +58,7 @@ export default {
     },
     async fetchRequests() {
       try {
-        const res = await axios.get('http://localhost:3001/detailpemesanjasa');
+        const res = await axios.get('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/detailpemesanjasa');
         this.requests = res.data;
       } catch (err) {
         console.error('Error fetching requests:', err);

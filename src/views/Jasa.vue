@@ -118,7 +118,7 @@ export default {
         };
 
         // POST ke json-server
-        const res = await axios.post('http://localhost:3001/providers', newP);
+        const res = await axios.post('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/providers', newP);
         const createdProvider = res.data;
 
         this.providers.push({ ...createdProvider, editing: false });
@@ -141,7 +141,7 @@ export default {
     toggleEdit(provider) {
       if (provider.editing) {
         // Simpan update
-        axios.put(`http://localhost:3001/providers/${provider.id}`, provider)
+        axios.put(`https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/providers/${provider.id}`, provider)
           .then(() => alert('Penjasa berhasil diupdate!'))
           .catch(err => {
             console.error('Error updating provider:', err);
@@ -154,7 +154,7 @@ export default {
     async deleteProvider(id) {
       if (confirm('Yakin ingin menghapus penjasa ini?')) {
         try {
-          await axios.delete(`http://localhost:3001/providers/${id}`);
+          await axios.delete(`https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/providers/${id}`);
           this.providers = this.providers.filter(p => p.id !== id);
           alert('Penjasa berhasil dihapus!');
         } catch (err) {
@@ -174,7 +174,7 @@ export default {
         providerName: provider.name
       };
       try {
-        await axios.post('http://localhost:3001/detailpemesanjasa', payload);
+        await axios.post('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/detailpemesanjasa', payload);
         alert('Permintaan jasa berhasil dikirim!');
         this.userForms[index] = { nama: '', nohp: '', alamatKebun: '', jenisPekerjaan: '' };
       } catch (err) {
