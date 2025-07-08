@@ -58,16 +58,6 @@ const handleLogin = async () => {
   --gradient-border: linear-gradient(135deg, #2d5a27, #4a7c59);
 }
 
-.dark {
-  --bg-color: #121212;
-  --text-color: #e0e0e0;
-  --navbar-bg: linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 50%, #1a2e1a 100%);
-  --accent-color: #ff8c66;
-  --card-bg: #1e1e1e;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  --gradient-border: linear-gradient(135deg, #1a2e1a, #2d4a2d);
-}
 
 .login-container {
   display: flex;
@@ -174,13 +164,13 @@ button {
   width: 100%;
   padding: 12px;
   background: var(--navbar-bg);
-  color: white;
+  color: rgb(244, 126, 67);
   font-weight: 600;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,var(--accent-color);
 }
 
 button:hover:not(:disabled) {
@@ -189,7 +179,7 @@ button:hover:not(:disabled) {
 }
 
 button:disabled {
-  background: #6c757d;
+  background: #455f76;
   cursor: not-allowed;
 }
 
