@@ -14,14 +14,14 @@ import { useAuthStore } from '../stores/authStore'
 
 const routes = [
   { path: '/login', name: 'Login', component: Login },
-  { path: '/', name: 'Home', component: Home, meta: { requiresAuth: true } },
-  { path: '/sejarah', name: 'Sejarah', component: Sejarah, meta: { requiresAuth: true } },
-  { path: '/manfaat', name: 'Manfaat', component: Manfaat, meta: { requiresAuth: true } },
-  { path: '/produksi', name: 'Produksi', component: Produksi, meta: { requiresAuth: true } },
-  { path: '/jualbeli', name: 'JualBeli', component: JualBeli, meta: { requiresAuth: true } },
-  { path: '/jasa', name: 'Jasa', component: Jasa, meta: { requiresAuth: true } },
-  { path: '/detail-pemesan', name: 'DetailPemesan', component: DetailPemesan, meta: { requiresAuth: true } },
-  { path: '/:pathMatch(.*)*', redirect: '/login' } // jika route tidak cocok, redirect ke login
+  { path: '/', name: 'Home', component: Home }, // tidak perlu auth
+  { path: '/sejarah', name: 'Sejarah', component: Sejarah },
+  { path: '/manfaat', name: 'Manfaat', component: Manfaat },
+  { path: '/produksi', name: 'Produksi', component: Produksi },
+  { path: '/jualbeli', name: 'JualBeli', component: JualBeli, meta: { requiresAuth: true } }, // hanya JualBeli yang butuh login
+  { path: '/jasa', name: 'Jasa', component: Jasa },
+  { path: '/detail-pemesan', name: 'DetailPemesan', component: DetailPemesan },
+  { path: '/:pathMatch(.*)*', redirect: '/' } // jika route tidak cocok, redirect ke home
 ]
 
 const router = createRouter({

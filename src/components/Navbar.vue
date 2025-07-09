@@ -61,36 +61,38 @@
               <span>Produksi</span>
             </router-link>
           </li>
-          <li>
-            <router-link to="/jualbeli" @click="closeMobileMenu">
-              <svg class="nav-icon" viewBox="0 0 24 24">
-                <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-              </svg>
-              <span>Jual Beli</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/jasa" @click="closeMobileMenu">
-              <svg class="nav-icon" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-              <span>Jasa</span>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/detail-pemesan" @click="closeMobileMenu">
-              <svg class="nav-icon" viewBox="0 0 24 24">
-                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-              </svg>
-              <span>Detail Pemesan</span>
-            </router-link>
-          </li>
+
+          <!-- MENU KHUSUS ADMIN -->
+          <template v-if="auth.isLoggedIn">
+            <li>
+              <router-link to="/jualbeli" @click="closeMobileMenu">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+                <span>Jual Beli</span>
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/jasa" @click="closeMobileMenu">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <span>Jasa</span>
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/detail-pemesan" @click="closeMobileMenu">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                </svg>
+                <span>Detail Pemesan</span>
+              </router-link>
+            </li>
+          </template>
         </ul>
 
         <!-- Action Buttons -->
         <div class="nav-actions">
-          
-
           <div class="auth-section">
             <button v-if="!auth.isLoggedIn" @click="handleLogin" class="auth-btn login-btn">
               <svg class="auth-icon" viewBox="0 0 24 24">
@@ -114,14 +116,8 @@
 <script setup>
 import { useAuthStore } from '../stores/authStore'
 import { useRouter } from 'vue-router'
-import { toRefs, ref } from 'vue'
+import { ref } from 'vue'
 
-const props = defineProps({
-  toggleTheme: { type: Function, required: true },
-  isDark: { type: Boolean, required: true }
-})
-
-const { toggleTheme, isDark } = toRefs(props)
 const auth = useAuthStore()
 const router = useRouter()
 
@@ -146,6 +142,7 @@ const logout = () => {
   closeMobileMenu()
 }
 </script>
+
 
 <style scoped>
 .navbar {

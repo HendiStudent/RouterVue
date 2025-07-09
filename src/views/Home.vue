@@ -11,6 +11,13 @@
       Website resmi yang membahas segala hal tentang kelapa sawit, mulai dari sejarah, manfaat,
       produksi, hingga jual beli dan jasa terkait kelapa sawit.
     </p>
+    
+  
+  <div class="photo-gallery">
+      <img src="../assets/kebun-sawit.jpg" alt="Kebun Kelapa Sawit" />
+      <img src="../assets/buah-sawit.jpg" alt="Buah Kelapa Sawit" />
+      <img src="../assets/produksi-miyak.jpg" alt="Produksi Minyak Sawit" />
+    </div>
   </section>
 </template>
 
@@ -18,6 +25,7 @@
 export default {
   name: 'HomePage'
 };
+
 </script>
 
 <style scoped>
@@ -31,7 +39,24 @@ export default {
   --border-color: rgba(0, 0, 0, 0.1);
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-
+.photo-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+.photo-gallery img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.photo-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(255, 107, 53, 0.4);
+}
 
 .home {
   max-width: 1400px;
