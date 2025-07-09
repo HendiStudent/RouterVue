@@ -45,7 +45,7 @@
 
 
     <!-- ✅ Admin Manajemen Barang -->
-    <h3 class="section-subtitle">Manajemen Barang (Admin)</h3>
+    <h3 class="section-subtitle">Manajemen Barang</h3>
 
     <!-- Form Tambah Barang Baru -->
     <div class="form-container">
@@ -125,7 +125,7 @@
     </div>
 
     <!-- ✅ Simulasi Pembelian -->
-    <h3 class="section-subtitle">Simulasi Pembelian (Pembeli)</h3>
+    <h3 class="section-subtitle">Simulasi Pembelian</h3>
     <div class="purchase-container">
       <h4>Form Pembelian</h4>
       <form @submit.prevent="processPurchase" class="purchase-form">
