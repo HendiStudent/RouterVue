@@ -124,8 +124,8 @@
       </table>
     </div>
 
-    <!-- ✅ Simulasi Pembelian -->
-    <h3 class="section-subtitle">Simulasi Pembelian</h3>
+    <!-- Pembelian -->
+    <h3 class="section-subtitle">Pembelian</h3>
     <div class="purchase-container">
       <h4>Form Pembelian</h4>
       <form @submit.prevent="processPurchase" class="purchase-form">
