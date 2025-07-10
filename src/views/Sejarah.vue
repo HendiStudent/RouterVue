@@ -21,7 +21,6 @@
 </template>
 
 <style scoped>
-/* Use the same CSS variables as other components for consistency */
 :root {
   --bg-color: #ffffff;
   --text-color: #333333;
@@ -50,7 +49,7 @@
   padding: 0 20px;
   background-color: var(--bg-color);
   color: var(--text-color);
-  min-height: calc(100vh - 70px); /* Adjust for navbar height */
+  min-height: calc(100vh - 70px); 
 }
 
 .content-wrapper {
@@ -116,7 +115,7 @@ p {
   margin-bottom: 20px;
 }
 
-/* Responsive Design */
+/* Responsive  */
 @media (max-width: 768px) {
   .page-content {
     margin: 20px auto;
@@ -158,7 +157,6 @@ p {
   }
 }
 
-/* Accessibility */
 .content-wrapper:focus-within,
 .sejarah-image:focus,
 h2:focus,
@@ -167,7 +165,6 @@ p:focus {
   outline-offset: 2px;
 }
 
-/* Smooth transitions for theme changes */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }

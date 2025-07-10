@@ -34,7 +34,6 @@ export default {
 </script>
 
 <style>
-/* CSS Variables untuk theme */
 .light-theme {
   --bg-color: #fff;
   --text-color: #333;
@@ -45,17 +44,7 @@ export default {
   --button-border: white;
 }
 
-.dark-theme {
-  --bg-color: #121212;
-  --text-color: #eee;
-  --nav-bg: #1b5e20;
-  --nav-text: #a5d6a7;
-  --link-hover-bg: rgba(255, 255, 255, 0.15);
-  --button-bg: transparent;
-  --button-border: #a5d6a7;
-}
 
-/* Reset & global */
 body, html, #app {
   margin: 0;
   padding: 0;

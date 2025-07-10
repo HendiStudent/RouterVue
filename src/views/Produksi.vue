@@ -9,7 +9,7 @@
       Penerapan teknologi modern dan praktik berkelanjutan sangat penting untuk menjaga produktivitas dan kelestarian lingkungan.
     </p>
 
-    <!-- ✅ Penjualan Tahunan -->
+    <!-- Penjualan Tahunan -->
     <h3 class="section-subtitle">Data Penjualan Tahunan</h3>
     <div class="market-table-container">
       <table class="market-table">
@@ -32,7 +32,7 @@
       </table>
     </div>
 
-    <!-- ✅ Rincian Barang per Tahun -->
+    <!--  Rincian Barang per Tahun -->
     <h3 class="section-subtitle">Rincian Penjualan Barang</h3>
     <div v-for="(penjualan, index) in penjualanTahunan" :key="'barang-' + index" class="rincian-container">
       <h4>Tahun {{ penjualan.tahun }}</h4>
@@ -43,7 +43,7 @@
       </ul>
     </div>
 
-    <!-- ✅ Rincian Jasa per Tahun -->
+    <!--  Rincian Jasa per Tahun -->
     <h3 class="section-subtitle">Rincian Penjualan Jasa</h3>
     <div v-for="(penjualan, index) in penjualanTahunan" :key="'jasa-' + index" class="rincian-container">
       <h4>Tahun {{ penjualan.tahun }}</h4>

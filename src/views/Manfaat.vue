@@ -49,7 +49,6 @@
 </template>
 
 <style scoped>
-/* Use the same CSS variables as other components for consistency */
 :root {
   --bg-color: #ffffff;
   --text-color: #333333;
@@ -78,7 +77,7 @@
   padding: 0 20px;
   background-color: var(--bg-color);
   color: var(--text-color);
-  min-height: calc(100vh - 70px); /* Adjust for navbar height */
+  min-height: calc(100vh - 70px); 
 }
 
 h2 {
@@ -155,7 +154,7 @@ h2 {
   margin: 0;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
   .page-content {
     margin: 20px auto;
@@ -205,7 +204,6 @@ h2 {
   }
 }
 
-/* Accessibility */
 .benefit-item:focus-within,
 .benefit-image:focus,
 .benefit-content h3:focus,
@@ -214,7 +212,6 @@ h2 {
   outline-offset: 2px;
 }
 
-/* Smooth transitions for theme changes */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }

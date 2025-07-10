@@ -75,7 +75,7 @@ export default {
   methods: {
     async getProviders() {
       try {
-        const res = await axios.get('http://localhost:3001/providers');
+        const res = await axios.get('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/providers');
         this.providers = res.data.map(p => ({ ...p, editing: false }));
         this.userForms = this.providers.map(() => ({
           nama: '',
@@ -187,7 +187,7 @@ export default {
 </script>
 
 <style scoped>
-/* Use the same CSS variables as other components for consistency */
+
 :root {
   --bg-color: #ffffff;
   --text-color: #333333;
@@ -198,15 +198,6 @@ export default {
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.dark {
-  --bg-color: #121212;
-  --text-color: #e0e0e0;
-  --navbar-bg: linear-gradient(135deg, #1a2e1a 0%, #2d4a2d 50%, #1a2e1a 100%);
-  --accent-color: #ff8c66;
-  --card-bg: #1e1e1e;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
 
 .page-content {
   max-width: 1400px;
@@ -214,7 +205,7 @@ export default {
   padding: 0 20px;
   color: var(--text-color);
   background-color: var(--bg-color);
-  min-height: calc(100vh - 70px); /* Adjust for navbar height */
+  min-height: calc(100vh - 70px); 
 }
 
 h2 {
@@ -375,7 +366,7 @@ p {
   display: inline-block;
   margin: 10px 0;
   padding: 10px 20px;
-  background: #25D366; /* WhatsApp green */
+  background: #25D366;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -426,7 +417,7 @@ p {
   transform: translateY(-2px);
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
   .page-content {
     margin: 20px auto;
@@ -479,7 +470,7 @@ p {
   }
 }
 
-/* Accessibility */
+
 input:focus,
 button:focus,
 a:focus {
@@ -487,7 +478,7 @@ a:focus {
   outline-offset: 2px;
 }
 
-/* Smooth transitions for theme changes */
+
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

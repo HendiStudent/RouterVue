@@ -6,7 +6,7 @@ export const useAuthStore = defineStore('auth', {
   }),
   actions: {
     login(username, password) {
-      // Contoh validasi login sederhana
+      
       if (username === 'admin' && password === '1234') {
         this.isLoggedIn = true
         return true

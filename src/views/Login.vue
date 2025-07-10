@@ -46,7 +46,7 @@ const handleLogin = async () => {
 
 
 <style scoped>
-/* Use the same CSS variables as other components for consistency */
+
 :root {
   --bg-color: #ffffff;
   --text-color: #333333;
@@ -63,7 +63,7 @@ const handleLogin = async () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 70px); /* Adjust for navbar height */
+  min-height: calc(100vh - 70px); 
   background: var(--bg-color);
   padding: 20px;
   position: relative;
@@ -188,7 +188,7 @@ button:focus {
   outline-offset: 2px;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
   .login-wrapper {
     padding: 30px 20px;
@@ -231,7 +231,7 @@ button:focus {
   }
 }
 
-/* Accessibility */
+
 input:focus,
 button:focus,
 h2:focus,
@@ -240,7 +240,6 @@ h2:focus,
   outline-offset: 2px;
 }
 
-/* Smooth transitions for theme changes */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }

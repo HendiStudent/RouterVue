@@ -10,7 +10,7 @@
     </p>
 
     <h3 class="section-subtitle">Daftar Transaksi Sawit</h3>
-    <!-- ✅ Form Input Transaksi Sawit -->
+    <!--  Form Input Transaksi Sawit -->
     <div class="form-container">
       <h4>Input Transaksi Sawit</h4>
       <form @submit.prevent="addTransaksiSawit" class="add-form">
@@ -21,7 +21,7 @@
       </form>
     </div>
 
-    <!-- ✅ Tabel Transaksi Sawit -->
+    <!--  Tabel Transaksi Sawit -->
     <div class="market-table-container">
       <table class="market-table">
         <thead>
@@ -44,7 +44,7 @@
     </div>
 
 
-    <!-- ✅ Admin Manajemen Barang -->
+    <!--  Admin Manajemen Barang -->
     <h3 class="section-subtitle">Manajemen Barang</h3>
 
     <!-- Form Tambah Barang Baru -->
@@ -149,7 +149,7 @@
       </div>
     </div>
 
-    <!-- ✅ Riwayat Transaksi -->
+    <!--  Riwayat Transaksi -->
     <h3 class="section-subtitle">Riwayat Transaksi</h3>
     <div class="market-table-container">
       <table class="market-table">
@@ -263,7 +263,7 @@ export default {
     async getTransaksiSawit() {
       try {
         const res = await axios.get('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/transaksiSawit');
-        this.transaksiSawit = res.data.reverse(); // tampil terbaru di atas
+        this.transaksiSawit = res.data.reverse(); 
       } catch (err) {
         console.error('Error fetching transaksi sawit:', err);
       }

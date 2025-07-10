@@ -21,7 +21,7 @@ const routes = [
   { path: '/jualbeli', name: 'JualBeli', component: JualBeli, meta: { requiresAuth: true } }, // hanya JualBeli yang butuh login
   { path: '/jasa', name: 'Jasa', component: Jasa },
   { path: '/detail-pemesan', name: 'DetailPemesan', component: DetailPemesan },
-  { path: '/:pathMatch(.*)*', redirect: '/' } // jika route tidak cocok, redirect ke home
+  { path: '/:pathMatch(.*)*', redirect: '/' } 
 ]
 
 const router = createRouter({
@@ -32,7 +32,6 @@ const router = createRouter({
   }
 })
 
-// ✅ Navigation guard
 router.beforeEach((to, from, next) => {
   const auth = useAuthStore()
 
