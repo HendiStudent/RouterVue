@@ -257,7 +257,6 @@ export default {
   mounted() {
     this.initializeData();
     this.getTransaksiSawit();
-
   },
   methods: {
     async getTransaksiSawit() {
@@ -328,16 +327,25 @@ export default {
       }
     },
 
+    // 🔥 fungsi deleteBarang diperbaiki langsung di sini
     async deleteBarang(id) {
-      if (confirm('Apakah Anda yakin ingin menghapus barang ini?')) {
-        try {
-          await axios.delete(`https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/barangInventory/${id}`);
-          this.barangInventory = this.barangInventory.filter(b => b.id !== id);
-          alert('Barang berhasil dihapus!');
-        } catch (err) {
-          console.error('Error deleting barang:', err);
-          alert('Gagal menghapus barang!');
-        }
+      if (!id) {
+        alert('ID barang tidak ditemukan!');
+        return;
+      }
+
+      const konfirmasi = confirm('Apakah Anda yakin ingin menghapus barang ini?');
+      if (!konfirmasi) return;
+
+      try {
+        await axios.delete(`https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/barangInventory/${id}`);
+        // Refresh data agar tabel terupdate
+        const res = await axios.get('https://fd2a160d-c5e8-49d1-8855-2e5f83906b1e-00-bgmkld5dlllk.pike.replit.dev/barangInventory');
+        this.barangInventory = res.data;
+        alert('Barang berhasil dihapus!');
+      } catch (err) {
+        console.error('Error deleting barang:', err.response?.data || err.message);
+        alert('Gagal menghapus barang!');
       }
     },
 
@@ -418,7 +426,6 @@ export default {
   }
 };
 </script>
-
 
 <style scoped>
 .page-content {
